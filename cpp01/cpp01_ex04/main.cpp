@@ -6,6 +6,11 @@ std::string replace(std::string str1, std::string str2, std::string str){
     size_t index;
     if(str1 == str2){
         std::cerr << "the 1st and 2nd strings are the same !" << std::endl;
+        exit(0);
+    }
+    if(str1 == ""){
+        std::cerr << "str must not be null !" << std::endl;
+        exit(0);
     }
     while((index = str.find(str1)) != std::string::npos){
         str = str.substr(0, index) + str2 + str.substr(index + str1.length(), -1);

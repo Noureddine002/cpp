@@ -15,13 +15,9 @@ Data* deserialize(uintptr_t raw){
 
 int main(void){
     Data d = {5,6};
+    std::cout << "x : " << d.x << " y : " << d.y << std::endl;
     uintptr_t p = serialize(&d);
-    std::cout << "value of p : " << p << std::endl;
-    std::cout << "value of the adress of p : " << &p << std::endl;
-    Data *ptr_d = deserialize(p);
-    std::cout << "adress of ptr : " << ptr_d << std::endl;
-    std::cout << "adress of d : " << &d << std::endl;
-    std::cout << "value of x after deserialization : " << ptr_d->x << std::endl;
-    std::cout << "value of y after deserialization : " << ptr_d->y << std::endl;
+    Data *d_new = deserialize(p);
+    std::cout << "x new : " << d_new->x << " y new : " << d_new->y << std::endl;
     return (0);
 }
